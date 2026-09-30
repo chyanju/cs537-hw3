@@ -1,0 +1,60 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{16.5cm}
+\setlength{\topmargin}{-1cm}
+\setlength{\textheight}{9in}
+\renewcommand{\baselinestretch}{1.1}
+
+\title{Math 104A Homework \#1 \thanks{All course materials (class lectures and discussions, handouts, homework assignments, examinations, web materials) and the intellectual content of the course itself are protected by United States Federal Copyright Law, the California Civil Code. The UC Policy 102.23 expressly prohibits students (and all other persons) from recording lectures or discussions and from distributing or selling lectures notes and all other course materials without the prior written permission of Prof. Hector D. Ceniceros.}}
+\author{Instructor: Xu Yang}
+\date{}
+
+\begin{document}
+
+\maketitle
+\vspace{\baselineskip}
+
+\noindent\textbf{General Instructions:}\quad Please write your homework papers neatly. You need to turn in both your code and descriptions on Canvas with the appropriate form that the TA requires. Write your own code, individually. Do not copy codes!
+
+\begin{enumerate}
+\item Review and state the following theorems of Calculus:
+  \begin{enumerate}
+  \item The Intermediate Value Theorem.
+  \item The Mean Value Theorem.
+  \item Rolle's Theorem.
+  \item The Mean Value Theorem for Integrals.
+  \item The Weighted Mean Value Theorem for Integrals.
+  \end{enumerate}
+
+\item Write a computer code to implement the Composite Trapezoidal Rule quadrature
+\begin{equation}
+T_h[f] = h\left(\frac{1}{2}f(x_0) + f(x_1) + ... + f(x_{N-1}) + \frac{1}{2}f(x_N)\right),
+\end{equation}
+to approximate the definite integral
+\begin{equation}
+I[f] = \int_a^b f(x)dx,
+\end{equation}
+using the equally spaced points $x_0 = a$, $x_1 = x_0 + h$, $x_2 = x_0 + 2h$, . . . , $x_N = b$, where $h = (b-a)/N$. Make sure that \textbf{all your codes} have a preamble which describes the purpose of the code, all the input variables, the expected output, your name, and the date of the last time you modified the code.
+
+\item To test your code, take $f(x) = xe^{x^2}$ in $[0,1]$, compute the error $|I[f] - T_h[f]|$ for $h = 1/10$, $1/20$, $1/40$, and verify that $T_h$ has a convergent trend at the expected quadratic rate.
+
+\item Consider the definite integral
+\begin{align}
+I[e^{-x^2}] = \int_0^1 e^{-x^2}dx,
+\end{align}
+We cannot calculate its exact value but we can compute accurate approximations to it using $T_h[e^{-x^2}]$. Let
+\begin{align}
+q(h) = \frac{T_{h/2}[e^{-x^2}] - T_h[e^{-x^2}]}{T_{h/4}[e^{-x^2}] - T_{h/2}[e^{-x^2}]}.
+\end{align}
+Using your code, find a value of h for which $q(h)$ is approximately equal to 4. (a) Get an \emph{approximation} of the error, $I[e^{-x^2}] - T_h[e^{-x^2}]$, for that particular value of $h$. (b) Use this error approximation to obtain the \emph{extrapolated}, improved, approximation
+\begin{equation}
+S_h[e^{-x^2}] = T_h[e^{-x^2}] + \frac{4}{3}\left(T_{h/2}[e^{-x^2}] - T_h[e^{-x^2}]\right).
+\end{equation}
+Explain why $S_h[e^{-x^2}]$ is more accurate and converges faster to $I[e^{-x^2}]$ than $T_h[e^{-x^2}]$.
+\end{enumerate}
+
+\end{document}

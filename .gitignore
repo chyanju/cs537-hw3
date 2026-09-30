@@ -1,1 +1,8 @@
-__pycache__/
+# LaTeX build output: compile src/main.tex into src/main.pdf (not tracked)
+src/main.pdf
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
